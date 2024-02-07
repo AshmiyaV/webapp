@@ -56,17 +56,13 @@ public class UserController {
 
     @PutMapping("/self")
     public ResponseEntity<Object> updateUser(@RequestHeader("Authorization") String auth, @RequestBody User requestBody){
-        if(userService.checkIsValidUser(auth) && requestBody != null){
-//            if(requestBody != null){
-            if(requestBody.getUsername() == null && requestBody.getAccountCreated() == null && requestBody.getAccountUpdated() == null){
+        if(userService.checkIsValidUser(auth)){
+            if(userService.containsNecessaryFields(requestBody) && requestBody.getUsername() == null && requestBody.getAccountCreated() == null && requestBody.getAccountUpdated() == null){
                 UserDTO userDTO = userService.updateUser(auth, requestBody);
-
-//            User loggedInUser = userService.getUser(auth);
-//            UserDTO loggedInUserDTO = userService.userToUserDTOMapper(loggedInUser);
                 return ResponseEntity
-                        .ok()
+                        .status(HttpStatus.NO_CONTENT)
                         .cacheControl(CacheControl.noCache().mustRevalidate())
-                        .body(userDTO);
+                        .build();
             }
             else{
                 return ResponseEntity
@@ -75,7 +71,6 @@ public class UserController {
                         .build();
             }
         }
-//        }
         else return ResponseEntity
                     .status(HttpStatus.UNAUTHORIZED)
                     .cacheControl(CacheControl.noCache().mustRevalidate())

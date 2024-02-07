@@ -109,13 +109,13 @@ public class UserService {
        return true;
    }
 
-//   public boolean containsAllNecessaryFields(User requestBodyUser){
-//       String password = requestBodyUser.getPassword();
-//       String firstName = requestBodyUser.getFirstName();
-//       String lastName = requestBodyUser.getLastName();
-//       if(password == null || firstName == null || lastName == null){
-//           return false;
-//       }
-//       return true;
-//   }
+   public boolean containsNecessaryFields(User requestBodyUser){
+       String password = requestBodyUser.getPassword();
+       String firstName = requestBodyUser.getFirstName();
+       String lastName = requestBodyUser.getLastName();
+       if(password == null && firstName == null && lastName == null){
+           return false;
+       }
+       return true;
+   }
 }
