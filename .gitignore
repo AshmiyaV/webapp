@@ -18,14 +18,14 @@
 *.zip
 *.tar.gz
 *.rar
+.env
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-/.settings/
 
 
-# Spring boot
+## Spring Boot
 *#
 *.iml
 *.ipr
@@ -67,3 +67,4 @@ secrets.yml
 .gradletasknamecache
 .sts4-cache
 .git-hooks/
+/.idea
