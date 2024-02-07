@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -50,9 +48,6 @@ public class UserService {
             return loggedInUser != null && bCryptPasswordEncoder.matches(password, loggedInUser.getPassword());
         }
         return false;
-//        System.out.println(password);
-//        User loggedInUser = userRepository.findByUsername(userName);
-//        return loggedInUser != null && ((password != null || !password.isBlank()) && bCryptPasswordEncoder.matches(password, loggedInUser.getPassword()));
     }
    public String getUserNameFromAuth(String auth){
        String[] subStrings = getSubStrings(auth);
@@ -65,7 +60,6 @@ public class UserService {
    }
 
     public User getUserFromUserName(String userName) {
-//        String userName = getUserNameFromAuth(auth);
         return userRepository.findByUsername(userName);
     }
 

@@ -1,16 +1,12 @@
 package com.neu.csye6225.controller;
 
 import com.neu.csye6225.model.User;
-//import com.neu.csye6225.security.SecurityHandler;
 import com.neu.csye6225.model.UserDTO;
 import com.neu.csye6225.service.UserService;
 import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("v1/user")
