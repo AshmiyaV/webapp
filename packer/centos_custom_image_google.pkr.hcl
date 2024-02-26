@@ -23,7 +23,7 @@ build {
 
   provisioner "shell" {
     script = "script/installation.sh"
-  }
+  
   provisioner "shell" {
     script = "script/user.sh"
   }
