@@ -23,7 +23,7 @@ class UserControllerTest {
     @BeforeEach
     void setUp(){
         RestAssured.port = port;
-        RestAssured.basePath = "v1/user";
+        RestAssured.basePath = "v9/user";
     }
 
     private String userToJsonString(User user){
